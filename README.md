@@ -1,0 +1,1 @@
+# ai_encampment_project
