@@ -1,0 +1,27 @@
+---
+title: "scratchpad"
+output: html_document
+date: "2024-11-26"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(janitor)
+library(lubridate)
+library(stringr)
+library(rvest)
+library(googlesheets4)
+library(httr)
+library(jsonlite)
+library(sf)
+library(mapview)
+library(leaflet)
+```
+
+
+
