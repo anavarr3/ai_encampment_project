@@ -1,0 +1,42 @@
+---
+title: "philly_encampments"
+author: "Taylor Nichols"
+date: "2024-11-25"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+philly_311_2024 <- read_csv("philly_311_calls_2024.csv")
+```
+
+```{r}
+philly_encampments <- philly_311_2024 |>
+filter(service_name == "Homeless Encampment Request") |> 
+  distinct(address, .keep_all = TRUE) |>
+  distinct(lat, lon, .keep_all = TRUE)
+```
+
+```{r}
+philly_encampments |>
+  group_by(service_name) |>
+  summarise(count=n())
+```
+
+```{r}
+philly_encampments_through_june <- philly_encampments |>
+  filter(expected_datetime < "2024-06-01")
+```
+
+```{r}
+write_csv(philly_encampments_through_june, "philly_encampments_2024.csv")
+```
+
