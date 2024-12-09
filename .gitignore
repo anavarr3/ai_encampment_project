@@ -162,3 +162,4 @@ cython_debug/
 #.idea/
 311_calls_2023.csv
 #*.jpg
+satellite_images_training/
