@@ -15,11 +15,11 @@ library(tidyverse)
 
 
 ```{r}
-philly_311_2024 <- read_csv("philly_311_calls_2024.csv")
+philly_311_2023 <- read_csv("311_calls_2023.csv")
 ```
 
 ```{r}
-philly_encampments <- philly_311_2024 |>
+philly_encampments <- philly_311_2023 |>
 filter(service_name == "Homeless Encampment Request") |> 
   distinct(address, .keep_all = TRUE) |>
   distinct(lat, lon, .keep_all = TRUE)
@@ -32,11 +32,6 @@ philly_encampments |>
 ```
 
 ```{r}
-philly_encampments_through_june <- philly_encampments |>
-  filter(expected_datetime < "2024-06-01")
-```
-
-```{r}
-write_csv(philly_encampments_through_june, "philly_encampments_2024.csv")
+write_csv(philly_encampments, "philly_encampments_2023.csv")
 ```
 
